@@ -3,4 +3,23 @@ layout: base
 permalink: /
 ---
 
-<p>Homepage content</p>
+<script>
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+
+  context.font = "18px Space Mono"; // Monospaced font
+  const text = "X".repeat(44); // Repeat the character 44 times
+  const totalWidth = context.measureText(text).width;
+
+  const aspectRatio = totalWidth / (16 * 44);
+  console.log(`Aspect Ratio: ${aspectRatio}`);
+</script>
+
+<div class="console">
+  <p class="line-1 anim-typing">Animation typewriter</p>
+</div>
+
+<!-- <p>
+  I am a first year Computer Science student who is passionate about programming
+  and learning new things.
+</p> -->

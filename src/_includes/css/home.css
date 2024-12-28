@@ -1,0 +1,32 @@
+.console {
+  --font-width-ratio: 0.612;
+}
+
+.line-1 {
+  margin: 0 auto;
+  border-right: calc(1em * var(--font-width-ratio)) solid
+    rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.anim-typing {
+  animation: typing 4s steps(20) 1s 1 normal both,
+    blinkTextCursor 500ms steps(20) infinite normal;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(1em * var(--font-width-ratio) * 20);
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

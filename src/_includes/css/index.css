@@ -1,5 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  /* Light mode palette */
+  --accent-color: #007bff;
+  --background-color: #f5e6cc;
+  --text-color: #333333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark mode palette */
+    --accent-color: #007bff;
+    --background-color: #1c1c1c;
+    --text-color: #cccccc;
+  }
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: "Space Mono", serif;
+  font-weight: 400;
+  font-size: large;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  flex: 1;
 }

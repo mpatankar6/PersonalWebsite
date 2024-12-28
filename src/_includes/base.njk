@@ -3,16 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mihir Patankar</title>
     <link rel="stylesheet" href="/bundle.css" />
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li style="margin-left: 0"><a href="/">Mihir Patankar</a></li>
+          <span style="flex-grow: 1"></span>
+          <li><a href="/education">Education</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -20,7 +22,9 @@
       {{ content | safe }}
     </main>
     <footer>
-      <p>&copy; 2024</p>
+      <p>
+        Made by Mihir Patankar <span class="copyright-symbol">&copy;</span> 2024
+      </p>
     </footer>
   </body>
 </html>
