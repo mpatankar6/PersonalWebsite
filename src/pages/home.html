@@ -4,22 +4,107 @@ permalink: /
 ---
 
 <script>
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
+  document.addEventListener("DOMContentLoaded", () => {
+    loadDate(new Date());
+    document.addEventListener("ConsoleAnimationFinished", () =>
+      revealRemainingContent()
+    );
+    if (new URLSearchParams(window.location.search).get("visited") == "true")
+      skipAnimations();
+    else writeConsoleLines();
+  });
 
-  context.font = "18px Space Mono"; // Monospaced font
-  const text = "X".repeat(44); // Repeat the character 44 times
-  const totalWidth = context.measureText(text).width;
+  const revealRemainingContent = () => {
+    document.getElementById("welcome-text").style.display = "block";
+  };
 
-  const aspectRatio = totalWidth / (16 * 44);
-  console.log(`Aspect Ratio: ${aspectRatio}`);
+  const skipAnimations = () => {
+    const lineElements = document
+      .getElementsByClassName("text-area")[0]
+      .querySelectorAll("p");
+    lineElements.forEach((element) => {
+      element.style.display = "block";
+      const span = element.querySelector("span");
+      span.classList.remove("animate-typing");
+      span.style.border = "none";
+    });
+    document.dispatchEvent(new Event("ConsoleAnimationFinished"));
+  };
+
+  const loadDate = (now) => {
+    const padTime = (time) => time.toString().padStart(2, "0");
+    document.getElementById("datetime").textContent = `
+    ${now.toLocaleString("en-us", { weekday: "short" })}
+    ${now.toLocaleString("en-us", { month: "short" })}
+    ${now.getDate()}
+    ${padTime(now.getHours())}:${padTime(now.getMinutes())}:${padTime(
+      now.getSeconds()
+    )}`;
+  };
+
+  const writeConsoleLines = () => {
+    let currentLine = 0;
+    const lineCount = document.getElementsByClassName("line").length;
+    document.addEventListener("animationend", (event) => {
+      if (event.animationName == "typing") {
+        if (currentLine === lineCount - 1) {
+          document.dispatchEvent(new Event("ConsoleAnimationFinished"));
+          return;
+        }
+        const currentLineElement = document.getElementById(
+          `line-${currentLine}`
+        );
+        const nextLineElement = document.getElementById(
+          `line-${(currentLine += 1)}`
+        );
+        currentLineElement.querySelector("span").style.border = "none";
+        characterCount =
+          nextLineElement.querySelector("span").textContent.length;
+        nextLineElement.style.setProperty("--characters", `${characterCount}`);
+        nextLineElement.style.setProperty(
+          "--typing-time",
+          `${characterCount * 75}ms`
+        );
+        nextLineElement.style.display = "block";
+      }
+    });
+  };
 </script>
 
 <div class="console">
-  <p class="line-1 anim-typing">Animation typewriter</p>
+  <div class="title-bar">
+    <div class="dot red"></div>
+    <div class="dot amber"></div>
+    <div class="dot green"></div>
+    <span class="title">Terminal — -zsh</span>
+  </div>
+  <div class="text-area">
+    <p>Last login: <span id="datetime">Sat Dec 28 11:56:25</span> on ttys001</p>
+    <p class="line" id="line-0">
+      mihirpatankar@Mac ~ %
+      <span class="line-input animate-typing"
+        >cat &lt&lt home.html &gt&gtEOF</span
+      >
+    </p>
+    <p class="line" id="line-1" style="display: none">
+      heredoc>
+      <span class="line-input animate-typing">Hi! I'm Mihir.</span>
+    </p>
+    <p class="line" id="line-2" style="display: none">
+      heredoc>
+      <span class="line-input animate-typing">Welcome to my website.</span>
+    </p>
+    <p class="line" id="line-3" style="display: none">
+      heredoc>
+      <span class="line-input animate-typing">EOF</span>
+    </p>
+    <p class="line" id="line-4" style="display: none">
+      mihirpatankar@Mac ~ %
+      <span class="line-input animate-typing"> </span>
+    </p>
+  </div>
 </div>
-
-<!-- <p>
-  I am a first year Computer Science student who is passionate about programming
-  and learning new things.
-</p> -->
+<h2 id="welcome-text" style="display: none">
+  Hi! I'm Mihir. <br />
+  Welcome to my website.
+</h2>
