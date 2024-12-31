@@ -9,17 +9,21 @@
       const closeMenu = (menu) => {
         menu.classList.add("collapsing");
         menu.classList.remove("show");
+        document.documentElement.classList.remove("no-scroll");
         menu.addEventListener("animationend", () => {
           menu.classList.remove("collapsing");
         });
       };
+
+      const openMenu = (menu) => {
+        menu.classList.add("show");
+        document.documentElement.classList.add("no-scroll");
+      };
+
       const hamburgerMenu = document.getElementById("hamburger-menu");
       hamburgerMenuToggle.addEventListener("click", () => {
-        if (hamburgerMenu.classList.contains("show")) {
-          closeMenu(hamburgerMenu);
-        } else {
-          hamburgerMenu.classList.add("show");
-        }
+        if (hamburgerMenu.classList.contains("show")) closeMenu(hamburgerMenu);
+        else openMenu(hamburgerMenu);
       });
       /**
        * Disable the hamburger menu when the screen is resized to a width

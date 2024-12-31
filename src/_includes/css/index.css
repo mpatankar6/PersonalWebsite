@@ -33,6 +33,6 @@ main {
   flex: 1;
 }
 
-body.no-scroll {
-  overflow-y: hidden;
+.no-scroll {
+  overflow: hidden;
 }
