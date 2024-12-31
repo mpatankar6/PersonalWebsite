@@ -14,12 +14,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .console {
-    font-size: small;
-  }
-}
-
 .console p {
   margin: 0;
 }
@@ -99,5 +93,11 @@
 @keyframes blinkTextCursor {
   50% {
     border-right-color: transparent;
+  }
+}
+
+@media (max-width: 600px) {
+  .console {
+    font-size: small;
   }
 }

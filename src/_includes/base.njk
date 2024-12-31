@@ -7,19 +7,7 @@
     <link rel="stylesheet" href="/bundle.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li style="margin-left: 0">
-            <a href="/?visited=true">Mihir Patankar</a>
-          </li>
-          <span style="flex-grow: 1"></span>
-          <li><a href="/education">Education</a></li>
-          <li><a href="/projects">Projects</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    {% include "partials/header.html" %}
     <main>
       {{ content | safe }}
     </main>

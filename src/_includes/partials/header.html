@@ -1,0 +1,60 @@
+<header>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburgerMenuToggle = document.getElementById(
+        "hamburger-menu-toggle"
+      );
+
+      // Uses the collapsing class to animate the menu out of view
+      const closeMenu = (menu) => {
+        menu.classList.add("collapsing");
+        menu.classList.remove("show");
+        menu.addEventListener("animationend", () => {
+          menu.classList.remove("collapsing");
+        });
+      };
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      hamburgerMenuToggle.addEventListener("click", () => {
+        if (hamburgerMenu.classList.contains("show")) {
+          closeMenu(hamburgerMenu);
+        } else {
+          hamburgerMenu.classList.add("show");
+        }
+      });
+      /**
+       * Disable the hamburger menu when the screen is resized to a width
+       * greater than 600px in case the user decides to shrink the window
+       * again later, which would cause the menu to reappear which is jarring. **/
+      window
+        .matchMedia(`(max-width: 600px)`)
+        .addEventListener("change", (e) => {
+          if (!e.matches && hamburgerMenu.classList.contains("show"))
+            closeMenu(hamburgerMenu);
+        });
+    });
+  </script>
+
+  <nav id="menu">
+    <ul>
+      <li id="name" style="margin-left: 0">
+        <a href="/?visited=true">Mihir Patankar</a>
+      </li>
+      <span style="flex-grow: 1"></span>
+      <li><a href="/education">Education</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <button id="hamburger-menu-toggle">☰</button>
+    </ul>
+  </nav>
+  <nav id="hamburger-menu">
+    <ul>
+      <li>
+        <a href="/?visited=true">Mihir Patankar</a>
+      </li>
+      <hr />
+      <li><a href="/education">Education</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
