@@ -20,7 +20,7 @@ permalink: /
     document.body.classList.remove("no-scroll");
     document.querySelector(".welcome-text").style.display = "block";
     document.querySelector(".down-arrow").style.display = "block";
-    document.querySelector(".content").style.display = "block";
+    document.querySelector(".content-view").style.display = "block";
   };
 
   const skipAnimations = () => {
@@ -79,8 +79,8 @@ permalink: /
     const downArrow = document.querySelector(".down-arrow");
 
     downArrow.addEventListener("click", () => {
-      const mainContent = document.querySelector(".content");
-      mainContent.scrollIntoView({ behavior: "smooth" });
+      const contentView = document.querySelector(".content-view");
+      contentView.scrollIntoView({ behavior: "smooth" });
       downArrow.style.display = "none";
     });
 
@@ -104,6 +104,9 @@ permalink: /
   </h2>
   <div class="down-arrow" style="display: none"></div>
 </div>
-<div class="content" style="display: none">
-  <p>Lorem Ipsum</p>
+<div class="content-view" style="display: none">
+  <div class="content">
+    <div class="column">Column 1 content</div>
+    <div class="column">Column 2 content</div>
+  </div>
 </div>

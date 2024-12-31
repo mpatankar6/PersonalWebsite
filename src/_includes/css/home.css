@@ -27,7 +27,22 @@
   transition: opacity 0.5s ease;
 }
 
-.content {
+.content-view {
   min-height: 100vh;
   padding: 100px;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
+  gap: 20px;
+}
+
+.column {
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
 }
