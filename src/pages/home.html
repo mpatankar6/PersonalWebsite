@@ -5,22 +5,27 @@ permalink: /
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("no-scroll");
     loadDate(new Date());
-    document.addEventListener("ConsoleAnimationFinished", () =>
-      revealRemainingContent()
-    );
+    document.addEventListener("ConsoleAnimationFinished", () => freeContent());
+
     if (new URLSearchParams(window.location.search).get("visited") == "true")
       skipAnimations();
     else writeConsoleLines();
+
+    splashScreenScrollBehavior();
   });
 
-  const revealRemainingContent = () => {
-    document.getElementById("welcome-text").style.display = "block";
+  const freeContent = () => {
+    document.body.classList.remove("no-scroll");
+    document.querySelector(".welcome-text").style.display = "block";
+    document.querySelector(".down-arrow").style.display = "block";
+    document.querySelector(".content").style.display = "block";
   };
 
   const skipAnimations = () => {
     const lineElements = document
-      .getElementsByClassName("text-area")[0]
+      .querySelector(".text-area")
       .querySelectorAll("p");
     lineElements.forEach((element) => {
       element.style.display = "block";
@@ -69,42 +74,36 @@ permalink: /
       }
     });
   };
-</script>
 
-<div class="console">
-  <div class="title-bar">
-    <div class="dot red"></div>
-    <div class="dot amber"></div>
-    <div class="dot green"></div>
-    <span class="title">Terminal — -zsh</span>
-  </div>
-  <div class="text-area">
-    <p>Last login: <span id="datetime">Sat Dec 28 11:56:25</span> on ttys001</p>
-    <p class="line" id="line-0">
-      mihirpatankar@Mac ~ %
-      <span class="line-input animate-typing"
-        >cat &lt&lt home.html &gt&gtEOF</span
-      >
-    </p>
-    <p class="line" id="line-1" style="display: none">
-      heredoc>
-      <span class="line-input animate-typing">Hi! I'm Mihir.</span>
-    </p>
-    <p class="line" id="line-2" style="display: none">
-      heredoc>
-      <span class="line-input animate-typing">Welcome to my website.</span>
-    </p>
-    <p class="line" id="line-3" style="display: none">
-      heredoc>
-      <span class="line-input animate-typing">EOF</span>
-    </p>
-    <p class="line" id="line-4" style="display: none">
-      mihirpatankar@Mac ~ %
-      <span class="line-input animate-typing"> </span>
-    </p>
-  </div>
+  const splashScreenScrollBehavior = () => {
+    const downArrow = document.querySelector(".down-arrow");
+
+    downArrow.addEventListener("click", () => {
+      const mainContent = document.querySelector(".content");
+      mainContent.scrollIntoView({ behavior: "smooth" });
+      downArrow.style.display = "none";
+    });
+
+    window.addEventListener("scroll", () => {
+      const splashScreen = document.querySelector(".splash");
+      const windowScrolledPastSplashScreen =
+        window.scrollY > splashScreen.scrollHeight / 3;
+      downArrow.style.display = windowScrolledPastSplashScreen
+        ? "none"
+        : "block";
+    });
+  };
+</script>
+<script></script>
+<noscript>Warning: Enabling JS is recommended.</noscript>
+<div class="splash">
+  <div class="console-container">{% include "partials/console.html" %}</div>
+  <h2 class="welcome-text" style="display: none">
+    Hi! I'm Mihir. <br />
+    Welcome to my website.
+  </h2>
+  <div class="down-arrow" style="display: none"></div>
 </div>
-<h2 id="welcome-text" style="display: none">
-  Hi! I'm Mihir. <br />
-  Welcome to my website.
-</h2>
+<div class="content" style="display: none">
+  <p>Lorem Ipsum</p>
+</div>

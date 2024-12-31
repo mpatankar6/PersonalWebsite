@@ -1,0 +1,96 @@
+.console {
+  --font-width-ratio: 0.612;
+  --caret-color: rgb(157, 157, 157);
+  --title-bar-color: rgb(241, 241, 239);
+  background-color: white;
+  border-radius: 7px 7px 7px 7px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .console {
+    --title-bar-color: rgb(57, 56, 56);
+    background-color: rgb(36, 36, 36);
+    color: white;
+  }
+}
+
+.console p {
+  margin: 0;
+}
+
+.console p span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.title-bar {
+  background: var(--title-bar-color);
+  padding: 10px;
+  border-radius: 7px 7px 0 0;
+}
+
+.title-bar .title {
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #f9f9f9;
+  border-radius: 50%;
+  margin: 0 4px 0 0;
+}
+
+.dot.red {
+  background: #ff6057;
+  border: 1px solid #e14640;
+}
+
+.dot.amber {
+  background: #ffbd2e;
+  border: 1px solid #dfa123;
+}
+
+.dot.green {
+  background: #27c93f;
+  border: 1px solid #1dad2b;
+}
+
+.text-area {
+  padding: 1em 1em 3em;
+}
+
+.line#line-0 {
+  --characters: 22;
+  --typing-time: calc(var(--characters) * 75ms);
+}
+/* The rest of the lines have their characters and typing-time values set in js */
+
+.line-input {
+  border-right: calc(1em * var(--font-width-ratio)) solid var(--caret-color);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.animate-typing {
+  animation: typing var(--typing-time) steps(var(--characters)) 0.5s 1 normal
+      both,
+    blinkTextCursor 500ms step-start infinite normal;
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(1em * var(--font-width-ratio) * var(--characters));
+  }
+}
+@keyframes blinkTextCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
