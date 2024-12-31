@@ -9,3 +9,5 @@ jobs:
         uses: actions/checkout@master
       - name: Build
         uses: TartanLlama/actions-eleventy@master
+        with:
+          install_dependencies: true
