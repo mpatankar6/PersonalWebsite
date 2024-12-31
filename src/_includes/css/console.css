@@ -27,6 +27,7 @@
   background: var(--title-bar-color);
   padding: 10px;
   border-radius: 7px 7px 0 0;
+  position: relative;
 }
 
 .title-bar .title {
@@ -99,5 +100,11 @@
 @media (max-width: 600px) {
   .console {
     font-size: small;
+  }
+}
+
+@media (max-width: 400px) {
+  .console {
+    font-size: x-small;
   }
 }
