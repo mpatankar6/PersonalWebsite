@@ -12,7 +12,7 @@ header nav ul {
   padding: 0;
 }
 
-header nav:not(#hamburger-menu) ul li {
+header nav:not(#hamburger-menu) ul li.link:not(.link.home) {
   margin-left: 3rem;
 }
 
@@ -36,7 +36,7 @@ header a::after {
 }
 
 header a:hover,
-#hamburger-menu-toggle:hover {
+#hamburger-menu-toggle-button:hover {
   color: var(--accent-color);
 }
 
@@ -47,6 +47,9 @@ header a:hover::after {
 
 #hamburger-menu-toggle {
   display: none;
+}
+
+#hamburger-menu-toggle-button {
   border: none;
   padding: 0;
   font-size: 1.5em;
@@ -105,14 +108,14 @@ header a:hover::after {
 }
 
 @media (max-width: 800px) {
-  header nav:not(#hamburger-menu) ul li:not(#name) {
+  header nav:not(#hamburger-menu) ul li.link:not(.link.home) {
     margin-left: 1.5em;
     font-size: large;
   }
 }
 
 @media (max-width: 600px) {
-  #menu li:not(#name) {
+  #menu li.link:not(.link.home) {
     display: none;
   }
 

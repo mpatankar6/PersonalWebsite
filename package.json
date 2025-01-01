@@ -12,7 +12,8 @@
   "description": "",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "clean-css": "^5.3.3"
+    "clean-css": "^5.3.3",
+    "terser": "^5.37.0"
   },
   "type": "module"
 }

@@ -1,53 +1,17 @@
 <header>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburgerMenuToggle = document.getElementById(
-        "hamburger-menu-toggle"
-      );
-
-      // Uses the collapsing class to animate the menu out of view
-      const closeMenu = (menu) => {
-        menu.classList.add("collapsing");
-        menu.classList.remove("show");
-        document.documentElement.classList.remove("no-scroll");
-        menu.addEventListener("animationend", () => {
-          menu.classList.remove("collapsing");
-        });
-      };
-
-      const openMenu = (menu) => {
-        menu.classList.add("show");
-        document.documentElement.classList.add("no-scroll");
-      };
-
-      const hamburgerMenu = document.getElementById("hamburger-menu");
-      hamburgerMenuToggle.addEventListener("click", () => {
-        if (hamburgerMenu.classList.contains("show")) closeMenu(hamburgerMenu);
-        else openMenu(hamburgerMenu);
-      });
-      /**
-       * Disable the hamburger menu when the screen is resized to a width
-       * greater than 600px in case the user decides to shrink the window
-       * again later, which would cause the menu to reappear which is jarring. **/
-      window
-        .matchMedia(`(max-width: 600px)`)
-        .addEventListener("change", (e) => {
-          if (!e.matches && hamburgerMenu.classList.contains("show"))
-            closeMenu(hamburgerMenu);
-        });
-    });
-  </script>
-
   <nav id="menu">
+    <style></style>
     <ul>
-      <li id="name" style="margin-left: 0">
+      <li class="link home" id="name">
         <a href="/?visited=true">Mihir Patankar</a>
       </li>
-      <span style="flex-grow: 1"></span>
-      <li><a href="/education">Education</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <button id="hamburger-menu-toggle">☰</button>
+      <li id="spacer" style="flex-grow: 1"></li>
+      <li class="link"><a href="/education">Education</a></li>
+      <li class="link"><a href="/projects">Projects</a></li>
+      <li class="link"><a href="/contact">Contact</a></li>
+      <li id="hamburger-menu-toggle">
+        <button id="hamburger-menu-toggle-button">☰</button>
+      </li>
     </ul>
   </nav>
   <nav id="hamburger-menu">

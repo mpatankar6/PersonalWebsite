@@ -1,0 +1,7 @@
+---
+permalink: bundle.js
+---
+{% set js %}
+{% include "js/header.js" %}
+{% include "js/home.js" %}
+{% endset %} {{ js | jsmin | safe }}
