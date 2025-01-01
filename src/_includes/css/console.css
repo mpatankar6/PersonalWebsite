@@ -4,6 +4,7 @@
   --title-bar-color: rgb(241, 241, 239);
   background-color: white;
   border-radius: 7px 7px 7px 7px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
