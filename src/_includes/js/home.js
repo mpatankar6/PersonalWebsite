@@ -1,14 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  document.body.classList.add("no-scroll");
-  loadDate(new Date());
-  document.addEventListener("ConsoleAnimationFinished", () => freeContent());
-
-  if (new URLSearchParams(window.location.search).get("visited") == "true")
-    skipAnimations();
-  else writeConsoleLines();
-
-  splashScreenScrollBehavior();
-});
+document.body.classList.add("no-scroll");
 
 const freeContent = () => {
   document.body.classList.remove("no-scroll");
@@ -82,3 +72,12 @@ const splashScreenScrollBehavior = () => {
     downArrow.style.display = windowScrolledPastSplashScreen ? "none" : "block";
   });
 };
+
+loadDate(new Date());
+document.addEventListener("ConsoleAnimationFinished", () => freeContent());
+
+if (new URLSearchParams(window.location.search).get("visited") == "true")
+  skipAnimations();
+else writeConsoleLines();
+
+splashScreenScrollBehavior();
