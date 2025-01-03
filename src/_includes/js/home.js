@@ -2,6 +2,7 @@ document.body.classList.add("no-scroll");
 
 const freeContent = () => {
   document.body.classList.remove("no-scroll");
+  document.querySelector(".replay").style.display = "inline-flex";
   document.querySelector(".welcome-text").style.display = "block";
   document.querySelector(".down-arrow").style.display = "block";
   document.querySelector(".content-view").style.display = "block";

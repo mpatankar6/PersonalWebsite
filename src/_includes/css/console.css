@@ -109,3 +109,16 @@
     font-size: x-small;
   }
 }
+
+.replay {
+  color: var(--accent-color);
+  font-size: inherit;
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.replay:visited {
+  color: var(--accent-color);
+}
