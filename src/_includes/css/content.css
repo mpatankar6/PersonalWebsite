@@ -55,10 +55,11 @@
 .column {
   padding: 20px;
   justify-self: center;
+  align-self: center;
   overflow: hidden;
 }
 
-.content img:not(.preserve-original-if-possible) {
+.content img:not(.preserve-original-size) {
   max-width: 320px;
   height: auto;
   border-radius: 6px;
