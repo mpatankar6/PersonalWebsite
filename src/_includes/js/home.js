@@ -1,5 +1,3 @@
-document.body.classList.add("no-scroll");
-
 const freeContent = () => {
   document.body.classList.remove("no-scroll");
   document.querySelector(".replay").style.display = "inline-flex";
@@ -74,11 +72,12 @@ const splashScreenScrollBehavior = () => {
   });
 };
 
-loadDate(new Date());
-document.addEventListener("ConsoleAnimationFinished", () => freeContent());
-
-if (new URLSearchParams(window.location.search).get("visited") == "true")
-  skipAnimations();
-else writeConsoleLines();
-
-splashScreenScrollBehavior();
+if (window.location.pathname === "/") {
+  document.body.classList.add("no-scroll");
+  loadDate(new Date());
+  document.addEventListener("ConsoleAnimationFinished", () => freeContent());
+  if (new URLSearchParams(window.location.search).get("visited") == "true")
+    skipAnimations();
+  else writeConsoleLines();
+  splashScreenScrollBehavior();
+}

@@ -3,4 +3,96 @@ layout: base
 permalink: /education/
 ---
 
-<p>Here's some info about my education.</p>
+<div class="content-view">
+  <div class="content single-column" style="padding-bottom: 0">
+    <div class="column">
+      <picture>
+        <source
+          srcset="/images/northeastern-logo-full-light.webp"
+          media="(prefers-color-scheme: light)"
+        />
+        <source
+          srcset="/images/northeastern-logo-full-dark.webp"
+          media="(prefers-color-scheme: dark)"
+        />
+        <img
+          src="/images/northeastern-logo-full-light.webp"
+          alt="Northeastern University Logo"
+          loading="lazy"
+          decoding="async"
+          width="600"
+          height="222"
+          class="preserve-original-if-possible"
+        />
+      </picture>
+    </div>
+  </div>
+  <div class="content single-column">
+    <div class="column">
+      <p>
+        <strong>School:</strong> Khoury College of Computer Sciences<br />
+        <strong>Degree:</strong> Bachelor of Science<br />
+        <strong>Current Status:</strong> Second Semester, Freshman Year<br />
+        <strong>Expected Graduation:</strong> May 2028<br />
+        <strong>Major:</strong> Computer Science<br />
+        <strong>Concentration:</strong> Artificial Intelligence<br />
+        <strong>Minor:</strong> Mathematics<br />
+        <strong>Activities:</strong>
+        <a href="https://honorsprogram.sites.northeastern.edu/" target="_blank"
+          >Honors Program</a
+        >, <a href="https://oasisneu.com/" target="_blank">Oasis</a> <br />
+        <strong>GPA:</strong> 4.0 <br />
+      </p>
+    </div>
+  </div>
+  <div class="content single-column">
+    <div class="column">
+      <h3>Relevant Coursework</h3>
+      {% include "partials/course-table.html" %}
+    </div>
+  </div>
+  <h1>High School</h1>
+  <div class="content single-column" style="padding-bottom: 0">
+    <div class="column">
+      <p>
+        <strong>Graduation:</strong> May 2024<br />
+        <strong>GPA:</strong> 3.9/4.0<br />
+        <strong>SAT:</strong> 1540: 790 Math 750 Reading
+      </p>
+    </div>
+  </div>
+  <div class="content single-column">
+    <div class="column">
+      <h3>Notable Activities</h3>
+      <ul>
+        <li>
+          FIRST Robotics Competition (FRC) Team
+          <ul>
+            <li>Programming and Electrical Lead</li>
+            <li>
+              Designed and implemented advanced software and robust electrical
+              systems, contributing to success at the world championship level;
+              mentored teammates; wrote and executed training curricula for new
+              members; volunteered in town fairs and parades; and helped with
+              recruitment and fundraising.
+            </li>
+            <li>Made open source contributions to the FRC community.</li>
+            <li>
+              Volunteered at FRC events. Started a summer camp to teach children
+              collaborative STEM skills through robotics.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Science National Honors Society
+          <ul>
+            <li>President</li>
+          </ul>
+        </li>
+        <li>National Honors Society</li>
+        <li>Coding Club</li>
+        <li>Math League</li>
+      </ul>
+    </div>
+  </div>
+</div>
