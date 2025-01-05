@@ -5,4 +5,42 @@ title: Mihir Patankar | Projects
 description: Mihir Patankar's projects. Here you can see my projects, how I made them, what I learned, and their GitHub repositories.
 ---
 
-<p>Here are some of my projects:</p>
+{% from "macros/card.njk" import card %} {% set circuitCreatorReadMore %}
+<p>
+  This program was my first experience with Python web apps. I chose Flask over
+  other frameworks because it is lightweight and proved easy to learn. I also
+  learned how to use Jinja, a templating engine for Python, to generate dynamic
+  HTML pages. I used JavaScript to create the interactive UI and to send data to
+  the server. I used CSS for the layout and style.
+</p>
+<p>
+  To effectively store and manage circuit data within the app, I needed a
+  structure capable of handling configurations of series and parallel items and
+  their permutations. To address this challenge, I designed a recursive
+  structure represented as JSON that can represent circuits with variable
+  complexity, ensuring I could represent diverse circuit designs.
+</p>
+<img
+  src="/images/circuit-creator.webp"
+  alt="A screenshot of my circuit creator project"
+  class="read-more-image"
+  loading="lazy"
+  decoding="async"
+  width="1200"
+  height="638"
+/>
+{% endset %}
+
+<section class="content-view">
+  <h1>My Projects</h1>
+  <div class="card-container">
+    {{ card( "Circuit Creator (2023)", "/images/circuit-creator-thumbnail.webp",
+    "A screenshot of my circuit creator project", "This was suggested to me by
+    my high-school physics teacher. The web app allows users to use a web
+    interface to design complex circuits of resistors, generating a rendered
+    schematic alongside a comprehensive data sheet that calculates and details
+    key electrical properties.", ["Python", "Flask", "Jinja", "JavaScript",
+    "HTML", "CSS"], circuitCreatorReadMore,
+    "https://github.com/mpatankar6/Circuit-Creator" ) }}
+  </div>
+</section>

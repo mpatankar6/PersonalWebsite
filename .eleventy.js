@@ -24,5 +24,6 @@ export default function (eleventyConfig) {
       includes: "_includes",
       output: "_site",
     },
+    htmlTemplateEngine: "njk",
   };
 }

@@ -1,0 +1,33 @@
+{% macro card(title, thumbnail, alt, description, tags, readMore, githubLink) %}
+<div class="card">
+  <img
+    src="{{ thumbnail }}"
+    alt="{{ alt }}"
+    class="card-image"
+    loading="lazy"
+    decoding="async"
+    width="180"
+    height="300"
+  />
+  <article>
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <div class="tags">
+      {% for tag in tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <span class="card-buttons"
+      >{% if readMore %}
+      <button class="card-button expand">More ▾</button>
+      {% endif %}
+      <a href="{{ githubLink }}" class="card-button github" target="_blank">
+        {% include "partials/github-logo.html" %} View on GitHub
+      </a>
+    </span>
+  </article>
+  <article class="read-more">
+    {{ readMore | safe }}
+  </article>
+</div>
+{% endmacro %}
