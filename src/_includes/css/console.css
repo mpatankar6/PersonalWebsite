@@ -1,16 +1,13 @@
 .console {
   --font-width-ratio: 0.612;
   --caret-color: rgb(157, 157, 157);
-  --title-bar-color: rgb(241, 241, 239);
-  background-color: white;
+  background-color: var(--primary-color);
   border-radius: 7px 7px 7px 7px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
   .console {
-    --title-bar-color: rgb(57, 56, 56);
-    background-color: rgb(36, 36, 36);
     color: white;
   }
 }
@@ -25,7 +22,7 @@
 }
 
 .title-bar {
-  background: var(--title-bar-color);
+  background: var(--secondary-color);
   padding: 10px;
   border-radius: 7px 7px 0 0;
   position: relative;
