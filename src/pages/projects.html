@@ -77,6 +77,51 @@ circuitCreatorReadMore %}
   width="1200"
   height="638"
 />
+{% endset %} {% set robotCodeReadMore %}
+<p>
+  The project was built using WPILib, the standard library for FRC robotics, and
+  the AdvantageKit framework for advanced logging and diagnostics.
+</p>
+<p>
+  The drivetrain can perform autonomous path following via a sophisticated
+  odometry system. The robotic arm, featuring two degrees of freedom, is
+  controlled by high-frequency motion profiles and a feedforward control model.
+  This approach accounted for system dynamics, allowing the arm to reach target
+  positions quickly and accurately.
+</p>
+<p>
+  Vision-based localization was achieved using two high-resolution global
+  shutter cameras connected to a Raspberry Pi running PhotonVision, an
+  open-source localization framework. Through meticulous calibration, the system
+  achieved a stationary accuracy of within two inches. My custom filtering
+  algorithm maintained usable localization data even during high-speed motion.
+</p>
+<p>
+  The program leverages both built-in simulation tools from the libraries I used
+  and custom solutions I developed. These high-fidelity simulations allowed for
+  rapid testing and iteration in a safe environment, minimizing risks and
+  optimizing performance before deploying the code to physical hardware.
+</p>
+{% endset %} {% set personalWebsiteReadMore %}
+<p>
+  I chose Eleventy as my static site generator. It allowed me to streamline the
+  development process using templating while still compiling to only pure HTML,
+  CSS, and JavaScript, ensuring an extremely fast site.
+</p>
+<p>
+  Creating an intuitive user experience was a top priority. I utilized media
+  queries to ensure the site looked great across a wide range of screen sizes.
+  Additionally, I carefully designed the interface to look its best in both
+  light and dark themes. I used Google's Lighthouse tool to audit my site,
+  making sure it was fast, adhered to best practices, and was optimized for SEO.
+</p>
+<p>
+  This project was also my first experience with deployment. I hosted the site
+  using Cloudflare Pages, leveraging Cloudflare's CDN for reliable performance
+  and uptime. I utilized additional tools like Cloudflare Fonts to enhance
+  optimization. I configured GitHub Actions to automatically build and deploy
+  the site whenever changes were pushed to GitHub.
+</p>
 {% endset %}
 
 <section class="content-view">
@@ -106,7 +151,19 @@ circuitCreatorReadMore %}
     comprehensive data sheet that calculates and details key electrical
     properties.", ["Python", "Flask", "Jinja", "JavaScript", "HTML", "CSS"],
     circuitCreatorReadMore, "https://github.com/mpatankar6/Circuit-Creator" ) }}
-    {{ card( "Portfolio Website (2025)", "", "", "This website!", ["Eleventy",
-    "Nunjucks", "JavaScript", "HTML", "CSS"], null, "" ) }}
+    {{ card( "FRC Robot Code (2024)", "/images/robot-code-thumbnail.webp", "A
+    photo of the robot I programmed", "This code was developed for the FRC
+    Robotics Competition at the world-championship level. It encompassed
+    programming several complex subsystems, including a drivetrain, a two-joint
+    robotic arm, accurate camera-based localization, an advanced odometry
+    system, sensor filtering, and more — all with simulation capabilities.",
+    ["Java", "Gradle", "Github Actions"], robotCodeReadMore,
+    "https://github.com/team4909/2024-Crescendo" ) }} {{ card( "Portfolio
+    Website (2025)", null, null, "This is my portfolio site: a platform where I
+    showcase my work and share information about myself. I approached its design
+    with the same principles a business applies to a customer-facing website. My
+    goal was to create a seamless user experience that is fast, visually
+    appealing, and easy to navigate.", ["Eleventy", "Nunjucks", "JavaScript",
+    "HTML", "CSS", "GitHub Actions"], personalWebsiteReadMore, "" ) }}
   </div>
 </section>
