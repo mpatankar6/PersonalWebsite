@@ -1,0 +1,60 @@
+form {
+  padding: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#email-link {
+  font-family: "Helvetica Neue";
+}
+
+#linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #0077b5;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#linkedin-button svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: white;
+}
+
+#linkedin-button:hover {
+  background-color: #005582;
+}
+
+form {
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: inherit;
+  font-size: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}

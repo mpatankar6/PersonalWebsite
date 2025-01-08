@@ -5,19 +5,64 @@ title: Mihir Patankar | Contact
 description: Mihir Patankar's contact information. Here you can see my email, connect with me on Linkedin, or send me a message.
 ---
 
-<h1>Email</h1>
-<p>Send me an email: `mihir@patankar.dev`</p>
-<h1>Linkedin</h1>
-<p>Connect with me on Linkedin!</p>
-<h1>Contact Form</h1>
-<p>You can also send me a message here! I will reply through email.</p>
-<form action="/submit-contact" method="POST">
-  <label for="name">Your name:</label>
-  <input type="text" id="name" name="name" required /><br /><br />
-  <label for="email">Your email:</label>
-  <input type="email" id="email" name="email" required /><br /><br />
-  <label for="message">Message:</label><br />
-  <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-  <br /><br />
-  <input type="submit" value="Send" />
-</form>
+<section class="content-view">
+  <article class="content">
+    <div class="column">
+      <h1>Email</h1>
+      <p>
+        Send me an email at
+        <span
+          ><a href="mailto:your-email@example.com" id="email-link">
+            mihir@patankar.dev
+          </a></span
+        >
+      </p>
+      <h1>LinkedIn</h1>
+      <p>
+        Connect with me on
+        <a
+          href="https://www.linkedin.com/in/mihir-patankar-208263327/"
+          target="_blank"
+          id="linkedin-button"
+        >
+          {% include "partials/linkedin-logo.html" %}
+          <span>LinkedIn</span>
+        </a>
+      </p>
+    </div>
+    <div class="column">
+      <h1>Contact Form</h1>
+      <p>You can also send me a message here! I will reply by email.</p>
+      <form action="#" method="post">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </article>
+</section>
