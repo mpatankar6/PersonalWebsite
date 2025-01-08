@@ -5,7 +5,55 @@ title: Mihir Patankar | Projects
 description: Mihir Patankar's projects. Here you can see my projects, how I made them, what I learned, and their GitHub repositories.
 ---
 
-{% from "macros/card.njk" import card %} {% set circuitCreatorReadMore %}
+{% set shotClockReadMore %}
+<p>
+  The app was built using React Native and the Expo framework, streamlining the
+  development and deployment process. This was my first time diving into React,
+  and learning about the concepts of state management and component lifecycles.
+</p>
+<p>
+  Considering the target audience may be impaired, I focused on creating a
+  simple, user-friendly UI. User inputs are stored asynchronously on-device to
+  ensure both security and simplicity. For calculating blood alcohol content, I
+  leveraged scientific literature on the Widmark equations, ensuring accurate
+  BAC range estimates based on several specific parameters.
+</p>
+<video controls class="read-more-media vertical" width="375" height="667">
+  <source src="/images/shot-clock-demo.webm" type="video/webm" />
+  Your browser does not support the video format.
+</video>
+{% endset %} {% set lightcurvesReadMore %}
+<p>
+  The program starts by querying and downloading data from an astronomical
+  database based on user-set parameters. It took significant effort to
+  understand the specifications of the data as documentation was sparse.
+  Afterward, I processed the data using Pandas, NumPy, and a proprietary
+  analysis package called CIAO. The data was then plotted with Matplotlib and
+  exported to a web format. While developing, I put a focus on real-time
+  logging, progress reporting, and crash reporting, so anyone could see why and
+  where the program had any issues.
+</p>
+<p>
+  This was my first project where I utilized parallel computing. Using Python's
+  various parallelism systems I implemented a system that could download and
+  process astronomical sources several at a time. Along the way I learned about
+  resource contention, mutexes, race-conditions, the GIL, and more. The result
+  was a program that was extremely quick, many times faster than a
+  single-threaded one would be.
+</p>
+<p>
+  I then made it interactive, allowing the data to be re-binned with different
+  time durations. This allowed for data to be examined further, making it more
+  useful for analysis. This was done by making a server that could host the
+  output, allowing it to send a request to run a source through the pipeline
+  again. See it in action below.
+</p>
+<video controls class="read-more-media" width="1280" height="720">
+  <source src="/images/lightcurves-rebinning-demo.webm" type="video/webm" />
+  Your browser does not support the video format.
+</video>
+{% endset %} {% from "macros/card.njk" import card %} {% set
+circuitCreatorReadMore %}
 <p>
   This program was my first experience with Python web apps. I chose Flask over
   other frameworks because it is lightweight and proved easy to learn. I also
@@ -23,7 +71,7 @@ description: Mihir Patankar's projects. Here you can see my projects, how I made
 <img
   src="/images/circuit-creator.webp"
   alt="A screenshot of my circuit creator project"
-  class="read-more-image"
+  class="read-more-media"
   loading="lazy"
   decoding="async"
   width="1200"
@@ -34,13 +82,31 @@ description: Mihir Patankar's projects. Here you can see my projects, how I made
 <section class="content-view">
   <h1>My Projects</h1>
   <div class="card-container">
-    {{ card( "Circuit Creator (2023)", "/images/circuit-creator-thumbnail.webp",
-    "A screenshot of my circuit creator project", "This was suggested to me by
-    my high-school physics teacher. The web app allows users to use a web
-    interface to design complex circuits of resistors, generating a rendered
-    schematic alongside a comprehensive data sheet that calculates and details
-    key electrical properties.", ["Python", "Flask", "Jinja", "JavaScript",
-    "HTML", "CSS"], circuitCreatorReadMore,
-    "https://github.com/mpatankar6/Circuit-Creator" ) }}
+    {{ card( "Shot Clock (2024)", "/images/shot-clock-thumbnail.webp", "A
+    screenshot of Shot Clock", "Shot Clock is a mobile app designed to help
+    individuals track their alcohol consumption and stay safe. With a simple and
+    intuitive interface, users input basic information and start a session where
+    they log each drink they have. The app then provides an estimated blood
+    alcohol content to help users stay informed and know when they might be
+    reaching unsafe levels.", ["React Native", "Expo", "Typescript", "Jest"],
+    shotClockReadMore, "https://github.com/mpatankar6/shot-clock" ) }} {{ card(
+    "Lightcurves (2023)", "/images/lightcurves-thumbnail.png", "A screenshot of
+    my lightcurves project", "While working at the Center for Astrophysics, I
+    processed large datasets from the Chandra X-ray Observatory. Initially
+    tasked with manually downloading and analyzing the data, I developed
+    software to automate the process, making it more than 50 times faster. This
+    innovation significantly boosted productivity and enabled quicker
+    insights.", ["Python", "Pandas", "NumPy", "Matplotlib", "Flask", "Jinja",
+    "JavaScript", "HTML", "CSS"], lightcurvesReadMore,
+    "https://github.com/mpatankar6/Lightcurves" ) }} {{ card( "Circuit Creator
+    (2023)", "/images/circuit-creator-thumbnail.webp", "A screenshot of my
+    circuit creator project", "This was suggested to me by my high-school
+    physics teacher. The web app allows users to use a web interface to design
+    complex circuits of resistors, generating a rendered schematic alongside a
+    comprehensive data sheet that calculates and details key electrical
+    properties.", ["Python", "Flask", "Jinja", "JavaScript", "HTML", "CSS"],
+    circuitCreatorReadMore, "https://github.com/mpatankar6/Circuit-Creator" ) }}
+    {{ card( "Portfolio Website (2025)", "", "", "This website!", ["Eleventy",
+    "Nunjucks", "JavaScript", "HTML", "CSS"], null, "" ) }}
   </div>
 </section>

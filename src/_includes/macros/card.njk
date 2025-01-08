@@ -1,5 +1,6 @@
 {% macro card(title, thumbnail, alt, description, tags, readMore, githubLink) %}
 <div class="card">
+  {% if thumbnail %}
   <img
     src="{{ thumbnail }}"
     alt="{{ alt }}"
@@ -7,8 +8,8 @@
     loading="lazy"
     decoding="async"
     width="180"
-    height="300"
   />
+  {% endif %}
   <article>
     <h2>{{ title }}</h2>
     <p>{{ description }}</p>
