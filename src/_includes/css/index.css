@@ -1,18 +1,18 @@
 :root {
   /* Light mode palette */
-  --accent-color: #007bff;
+  --accent-color: #0064d6;
+  --accent-hover-color: #0a81ff;
   --background-color: #f5e6cc;
   --primary-color: rgb(255, 255, 255);
   --secondary-color: rgb(241, 241, 239);
   --text-color: #333333;
-  --button-color: rgb(0, 123, 255);
-  --button-hover-color: #0069d9;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     /* Dark mode palette */
-    --accent-color: #007bff;
+    --accent-color: #0a81ff;
+    --accent-hover-color: #0064d6;
     --background-color: #1c1c1c;
     --primary-color: rgb(36, 36, 36);
     --secondary-color: rgb(57, 56, 56);

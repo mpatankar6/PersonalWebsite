@@ -42,7 +42,7 @@
   gap: 0.7em;
   padding: 0.5em 0.75em;
   background-color: var(--primary-color);
-  color: var(--text-color);
+  color: white;
   font-family: inherit;
   font-size: inherit;
   border: 1px solid var(--text-color);
@@ -51,13 +51,17 @@
 }
 
 .card-button.expand {
-  background-color: var(--button-color);
-  border: 1px solid var(--button-color);
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
   cursor: pointer;
 }
 
 .card-button.expand:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--accent-hover-color);
+}
+
+.card-button.github {
+  color: var(--text-color);
 }
 
 .card-button.github svg {

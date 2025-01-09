@@ -44,12 +44,12 @@
   font-size: inherit;
   cursor: pointer;
   font-weight: bold;
-  background-color: var(--button-color);
+  background-color: var(--accent-color);
   color: white;
 }
 
 .content button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--accent-hover-color);
 }
 
 .column {
