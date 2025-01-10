@@ -118,9 +118,10 @@ circuitCreatorReadMore %}
 <p>
   This project was also my first experience with deployment. I hosted the site
   using Cloudflare Pages, leveraging Cloudflare's CDN for reliable performance
-  and uptime. I utilized additional tools like Cloudflare Fonts to enhance
-  optimization. I configured GitHub Actions to automatically build and deploy
-  the site whenever changes were pushed to GitHub.
+  and uptime. I also used Cloudflare Functions to allow myself to run
+  server-side code to handle contact form submissions. I created a CI pipeline
+  with GitHub Actions to automatically build and deploy the site whenever
+  changes were pushed.
 </p>
 {% endset %}
 
@@ -136,7 +137,7 @@ circuitCreatorReadMore %}
     reaching unsafe levels.", ["React Native", "Expo", "Typescript", "Jest"],
     shotClockReadMore, "https://github.com/mpatankar6/shot-clock" ) }} {{ card(
     "Lightcurves (2023)", "/images/lightcurves-thumbnail.png", "A screenshot of
-    my lightcurves project", "While working at the Center for Astrophysics, I
+    my lightcurves project", "While working with the Center for Astrophysics, I
     processed large datasets from the Chandra X-ray Observatory. Initially
     tasked with manually downloading and analyzing the data, I developed
     software to automate the process, making it more than 50 times faster. This
