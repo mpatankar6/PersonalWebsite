@@ -1,0 +1,46 @@
+const mailgunAPI = "https://api.mailgun.net/v3/mihirpatankar.com/messages";
+
+export async function onRequestPost(context) {
+  const { request, env } = context;
+
+  const contentType = request.headers.get("Content-Type") || "";
+
+  if (contentType.includes("application/x-www-form-urlencoded")) {
+    const formData = Object.fromEntries(
+      new URLSearchParams(await request.text()).entries()
+    );
+
+    const email = new URLSearchParams();
+    email.append("from", "My Website <no-reply@mihirpatankar.com>");
+    email.append("to", env.DESTINATION_EMAIL);
+    email.append("subject", "New contact form submission");
+    email.append(
+      "html",
+      `<h1>Form Submission Details</h1>
+       <p><strong>Name:</strong> ${formData.name}</p>
+       <p><strong>Email:</strong> ${formData.email}</p>
+       <p><strong>Message:</strong><br/>${formData.message}</p>`
+    );
+
+    const response = await fetch(mailgunAPI, {
+      method: "POST",
+      headers: {
+        Authorization: getAuthString(env.MAILGUN_API_KEY),
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: email,
+    });
+
+    if (response.ok) {
+      return new Response("Email sent successfully", { status: 200 });
+    } else {
+      return new Response(`Failed to send email: ${await response.text()}`, {
+        status: 500,
+      });
+    }
+  } else {
+    return new Response("Unsupported content type", { status: 415 });
+  }
+}
+
+const getAuthString = (apiKey) => `Basic ${btoa(`api:${apiKey}`)}`;
