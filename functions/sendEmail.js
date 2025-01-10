@@ -5,18 +5,15 @@ export async function onRequestPost(context) {
 
   const contentType = request.headers.get("Content-Type") || "";
 
-  if (contentType.includes("application/x-www-form-urlencoded")) {
-    const formData = Object.fromEntries(
-      new URLSearchParams(await request.text()).entries()
-    );
-
+  if (contentType.includes("application/json")) {
+    const formData = await request.json();
     const email = new URLSearchParams();
     email.append("from", "My Website <no-reply@mihirpatankar.com>");
     email.append("to", env.DESTINATION_EMAIL);
     email.append("subject", "New contact form submission");
     email.append(
       "html",
-      `<h1>Form Submission Details</h1>
+      `<h1>New Form Submission</h1>
        <p><strong>Name:</strong> ${formData.name}</p>
        <p><strong>Email:</strong> ${formData.email}</p>
        <p><strong>Message:</strong><br/>${formData.message}</p>`
