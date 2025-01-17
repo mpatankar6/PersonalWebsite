@@ -13,12 +13,14 @@ if (window.location.pathname === "/contact/") {
       body: JSON.stringify(data),
     })
       .then(async (response) => {
-        if (response.ok)
+        if (response.ok) {
           formSubmissionMessage.textContent = await response.text();
-        else
+          form.reset();
+        } else {
           formSubmissionMessage.textContent = `HTTP Error ${response.status} ${
             response.statusText
           }, ${await response.text()}`;
+        }
       })
       .catch(
         (error) =>
