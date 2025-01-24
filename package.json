@@ -6,7 +6,7 @@
     "build": "eleventy",
     "serve": "eleventy --serve",
     "pages": "wrangler pages dev _site --compatibility-date=2025-01-01",
-    "start": "npm run serve & npm run pages"
+    "start": "concurrently \"npm run serve\" \"npm run pages\""
   },
   "keywords": [],
   "author": "",
@@ -15,8 +15,9 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "clean-css": "^5.3.3",
+    "concurrently": "^9.1.2",
     "terser": "^5.37.0",
-    "wrangler": "^3.103.1"
+    "wrangler": "^3.105.1"
   },
   "type": "module"
 }
