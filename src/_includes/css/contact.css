@@ -34,6 +34,24 @@ form {
   background-color: #005582;
 }
 
+#github-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#github-button:hover {
+  background-color: rgb(215, 215, 215);
+}
+
 .form-group label {
   display: block;
   margin-bottom: 0.5em;
