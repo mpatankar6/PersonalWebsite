@@ -1,9 +1,5 @@
-form {
-  padding: 10px 0px;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+.contact {
+  text-align: center;
 }
 
 #email-link {
@@ -50,23 +46,4 @@ form {
 
 #github-button:hover {
   background-color: rgb(215, 215, 215);
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-.form-group input,
-.form-group textarea {
-  font-family: inherit;
-  font-size: inherit;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--text-color);
-  border-radius: 5px;
-  background-color: var(--secondary-color);
-  color: var(--text-color);
-  transition: border-color 0.3s ease;
 }
