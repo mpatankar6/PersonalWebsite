@@ -4,8 +4,6 @@ import { minify } from "terser";
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("robots.txt");
-  eleventyConfig.addPassthroughCopy("functions");
-  eleventyConfig.addPassthroughCopy(".dev.vars");
 
   eleventyConfig.addFilter("cssmin", (code) => {
     return new CleanCSS({}).minify(code).styles;
