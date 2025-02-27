@@ -9,7 +9,7 @@ export async function onRequestPost(context) {
     const formData = await request.json();
     const email = new URLSearchParams();
     email.append("from", "My Website <no-reply@mihirpatankar.com>");
-    email.append("to", env.DESTINATION_EMAIL);
+    email.append("to", "mihir@mihirpatankar.com");
     email.append("subject", "New contact form submission");
     email.append(
       "html",
