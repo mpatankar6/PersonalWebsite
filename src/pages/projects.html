@@ -5,7 +5,18 @@ title: Mihir Patankar | Projects
 description: Mihir Patankar's projects. Here you can see my projects, how I made them, what I learned, and their GitHub repositories.
 ---
 
-{% set shotClockReadMore %}
+{% set mazeRunnerReadMore %} You can try the app
+<a href="https://maze-runner.pages.dev" target="_blank">here</a>.
+<p>
+  I built this with Vite and TypeScript and it's hosted on Cloudflare Pages. The
+  way it works is by using Kruskal's algorithm to generate a
+  minimum-spanning-tree, that is then drawn into a maze. The user can specify
+  the size of the maze, within reasonable bounds. The user can then choose to
+  either manually solve it, or employ an automated solve, in the form of either
+  a breadth-first or depth-first search. The user can also toggle a heatmap
+  based on distance of each cell in relation to the start or end cell.
+</p>
+{% endset %} {% set shotClockReadMore %}
 <p>
   The app was built using React Native and the Expo framework, streamlining the
   development and deployment process. This was my first time diving into React,
@@ -126,16 +137,23 @@ circuitCreatorReadMore %}
 <section class="content-view">
   <h1>My Projects</h1>
   <div class="card-container">
-    {{ card( "Shot Clock (2024)", "/images/shot-clock-thumbnail.webp", "A
-    screenshot of Shot Clock", "Shot Clock is a mobile app designed to help
-    individuals track their alcohol consumption and stay safe. With a simple and
-    intuitive interface, users input basic information and start a session where
-    they log each drink they have. The app then provides an estimated blood
-    alcohol content to help users stay informed and know when they might be
-    reaching unsafe levels.", ["React Native", "Expo", "TypeScript", "Jest"],
-    shotClockReadMore, "https://github.com/mpatankar6/shot-clock" ) }} {{ card(
-    "Lightcurves (2023)", "/images/lightcurves-thumbnail.png", "A screenshot of
-    my lightcurves project", "While working with the Center for Astrophysics, I
+    {{ card( "Maze Runner", "/images/maze-runner-thumbnail.webp", "A screenshot
+    of Maze Runner", "This was a fun project I made while learning about
+    Kruskal's algorithm. One of the things you can do with this algorithm and
+    MSTs is you can create mazes with a unique solution. This app allows you to
+    generate, solve, and play with mazes.", ["TypeScript", "Vite", "Vitest",
+    "HTML", "CSS", "Cloudflare", "GitHub Actions"], mazeRunnerReadMore,
+    "https://github.com/mpatankar6/maze-runner" ) }} {{ card( "Shot Clock
+    (2024)", "/images/shot-clock-thumbnail.webp", "A screenshot of Shot Clock",
+    "Shot Clock is a mobile app designed to help individuals track their alcohol
+    consumption and stay safe. With a simple and intuitive interface, users
+    input basic information and start a session where they log each drink they
+    have. The app then provides an estimated blood alcohol content to help users
+    stay informed and know when they might be reaching unsafe levels.", ["React
+    Native", "Expo", "TypeScript", "Jest"], shotClockReadMore,
+    "https://github.com/mpatankar6/shot-clock" ) }} {{ card( "Lightcurves
+    (2023)", "/images/lightcurves-thumbnail.png", "A screenshot of my
+    lightcurves project", "While working with the Center for Astrophysics, I
     processed large datasets from the Chandra X-ray Observatory. Initially
     tasked with manually downloading and analyzing the data, I developed
     software to automate the process, making it more than 50 times faster. This
@@ -159,12 +177,10 @@ circuitCreatorReadMore %}
     ["Java", "Gradle", "Github Actions"], robotCodeReadMore,
     "https://github.com/team4909/2024-Crescendo" ) }} {{ card( "Portfolio
     Website (2025)", null, null, "This is my portfolio site: a platform where I
-    showcase my work and share information about myself. I approached its design
-    with the same principles a business applies to a customer-facing website. My
-    goal was to create a seamless user experience that is fast, visually
-    appealing, and easy to navigate.", ["Eleventy", "Nunjucks", "JavaScript",
-    "HTML", "CSS", "Cloudflare Pages", "GitHub Actions"],
-    personalWebsiteReadMore, "https://github.com/mpatankar6/PersonalWebsite" )
-    }}
+    showcase my work and share information about myself. My goal was to create a
+    simple user experience that is fast, visually appealing, responsive, and
+    easy to navigate.", ["Eleventy", "Nunjucks", "JavaScript", "HTML", "CSS",
+    "Cloudflare", "GitHub Actions"], personalWebsiteReadMore,
+    "https://github.com/mpatankar6/PersonalWebsite" ) }}
   </div>
 </section>
