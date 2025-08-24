@@ -1,6 +1,4 @@
 .console {
-  --font-width-ratio: 0.612;
-  --caret-color: rgb(157, 157, 157);
   background-color: var(--primary-color);
   border-radius: 7px 7px 7px 7px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
@@ -25,7 +23,6 @@
   background: var(--secondary-color);
   padding: 10px;
   border-radius: 7px 7px 0 0;
-  position: relative;
 }
 
 .title-bar .title {
@@ -41,7 +38,6 @@
   height: 10px;
   background: #f9f9f9;
   border-radius: 50%;
-  margin: 0 4px 0 0;
 }
 
 .dot.red {
@@ -64,35 +60,14 @@
   height: 10em;
 }
 
-.line#line-0 {
-  --characters: 22;
-  --typing-time: calc(var(--characters) * 75ms);
+.line {
+  visibility: hidden;
 }
-/* The rest of the lines have their characters and typing-time values set in js */
 
 .line-input {
-  border-right: calc(1em * var(--font-width-ratio)) solid var(--caret-color);
-  white-space: nowrap;
+  border-right: 11px solid rgb(157, 157, 157);
+  white-space: pre;
   overflow: hidden;
-}
-
-.animate-typing {
-  animation: typing var(--typing-time) steps(var(--characters)) 0.5s 1 normal
-      both,
-    blinkTextCursor 500ms step-start infinite normal;
-}
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: calc(1em * var(--font-width-ratio) * var(--characters));
-  }
-}
-@keyframes blinkTextCursor {
-  50% {
-    border-right-color: transparent;
-  }
 }
 
 @media (max-width: 600px) {

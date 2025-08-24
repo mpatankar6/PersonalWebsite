@@ -13,7 +13,6 @@ const skipAnimations = () => {
   lineElements.forEach((element) => {
     element.style.display = "block";
     const span = element.querySelector("span");
-    span.classList.remove("animate-typing");
     span.style.border = "none";
   });
   document.dispatchEvent(new Event("ConsoleAnimationFinished"));
@@ -30,29 +29,47 @@ const loadDate = (now) => {
   )}`;
 };
 
-const writeConsoleLines = () => {
-  let currentLine = 0;
-  const lineCount = document.getElementsByClassName("line").length;
-  document.addEventListener("animationend", (event) => {
-    if (event.animationName == "typing") {
-      if (currentLine === lineCount - 1) {
-        document.dispatchEvent(new Event("ConsoleAnimationFinished"));
-        return;
+const typeLineAnimation = (element, text, hasLineBelow) => {
+  const timeBetweenCharactersMs = 100;
+  return new Promise((resolve) => {
+    let i = 0;
+    const typeNextCharacter = () => {
+      if (i < text.length) {
+        element.insertBefore(document.createTextNode(text[i]), null);
+        i++;
+        setTimeout(typeNextCharacter, timeBetweenCharactersMs);
+      } else {
+        // Removes the cursor before the next line is typed.
+        if (hasLineBelow) element.style.border = "none";
+        resolve();
       }
-      const currentLineElement = document.getElementById(`line-${currentLine}`);
-      const nextLineElement = document.getElementById(
-        `line-${(currentLine += 1)}`
-      );
-      currentLineElement.querySelector("span").style.border = "none";
-      characterCount = nextLineElement.querySelector("span").textContent.length;
-      nextLineElement.style.setProperty("--characters", `${characterCount}`);
-      nextLineElement.style.setProperty(
-        "--typing-time",
-        `${characterCount * 75}ms`
-      );
-      nextLineElement.style.display = "block";
-    }
+    };
+
+    typeNextCharacter();
   });
+};
+
+const runConsoleTypingAnimation = async () => {
+  const lines = [
+    "cat <<EOF >> home.html",
+    "Hi! I'm Mihir.",
+    "Welcome to my website.",
+    "EOF",
+    "\u200B",
+  ];
+
+  const lineInputElements = document.querySelectorAll(".line-input");
+  const lineElements = document.querySelectorAll(".line");
+  for (let i = 0; i < lines.length; i++) {
+    lineElements[i].style.visibility = "visible";
+    await typeLineAnimation(
+      lineInputElements[i],
+      lines[i],
+      lineElements[i].nextElementSibling
+    );
+  }
+
+  document.dispatchEvent(new Event("ConsoleAnimationFinished"));
 };
 
 const splashScreenScrollBehavior = () => {
@@ -78,6 +95,6 @@ if (window.location.pathname === "/") {
   document.addEventListener("ConsoleAnimationFinished", () => freeContent());
   if (new URLSearchParams(window.location.search).get("visited") == "true")
     skipAnimations();
-  else writeConsoleLines();
+  else runConsoleTypingAnimation();
   splashScreenScrollBehavior();
 }
